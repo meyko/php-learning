@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-xs-12" id="category-sidebar">
+	<div class="col-xs-12 category-sidebar">
 		<p class="h5 text-center">Категории</p>
 		<div class="panel panel-default text-center">
 			<div class="panel-body">
