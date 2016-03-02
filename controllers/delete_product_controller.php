@@ -12,6 +12,7 @@ if (checkAdmin()){
 	if ($_POST['id']){
 		$id=$_POST['id'];
 		delete('product',array('id'=>$id));
+		delete('stock',array('id'=>$id));
 		//получение списка фото для удаления
 		$delete_photos = select('product_photo','photo_url',array('id'=>$id));
 

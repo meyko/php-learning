@@ -2,7 +2,7 @@
   <html lang="ru_RU">
   <head>
     <meta charset="UTF-8">
-    <title>MyLoveShop</title>
+    <title>MyTestShop</title>
     <link rel="stylesheet" media="screen" href="/views/css/bootstrap.min.css">
     <link rel="stylesheet" href="/views/css/style.css">
   </head>
@@ -46,7 +46,7 @@
 
   <div class="row">
     <div class="col-md-2 col-sm-2 sidebar">
-      <?php include "controllers/".$sidebar_controler ?>
+        <?php if ($sidebar_controler) include "controllers/".$sidebar_controler ?>
     </div>
 
     <div class="col-md-8">

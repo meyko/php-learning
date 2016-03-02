@@ -15,6 +15,7 @@ if ($navigate=='product'){
 	if (!$product_list)
 		$product_list = select('product','*',$where,"ORDER BY id asc
 			LIMIT $startId, $max_items_page");
+	if ($product_list){
 
 	foreach($product_list as $k=>$v){
 		$family = select ('families','family', array('type'=>$v['type']));
@@ -32,8 +33,9 @@ if ($navigate=='product'){
 		else{
 			$product_list[$k]['photo'] = $photo[0]['photo_url'];
 		}
+		
 
 		$product_list[$k]['type']  = $family[0]['family'];
 	}
-
+}
 	?>

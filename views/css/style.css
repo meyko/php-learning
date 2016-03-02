@@ -111,3 +111,7 @@ a {
 	background: black;
 	border-color: black;
 }
+
+fieldset{
+	border:1px dotted grey;
+}

@@ -9,7 +9,7 @@
 	<div class="row text-center">
 		<p class="h2">Новые статьи</p>
 	</div>
-	<?php foreach ($posts as $post){?>
+	<?php if ($posts) foreach ($posts as $post){?>
 	<div class="row">
 		<div class="panel panel-default">
 			<div class="panel-heading">

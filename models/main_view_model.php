@@ -1,8 +1,7 @@
 <?php
-//список  рандомных товаров на главной
 $product_list = getRandom('product', $addicional_prod_count);
-
 // вычисляем номера текущих страниц
+
 list($current_page,
 	$prev_page,
 	$next_page,
@@ -16,7 +15,8 @@ $posts = select ($navigate,
 	$where,
 	"ORDER BY  date desc
 	LIMIT $startId, $max_rows_posts"
-	);
+	);	
 
+if ($posts)
 $posts = cut($posts); //обрезка статей до превью
 ?>

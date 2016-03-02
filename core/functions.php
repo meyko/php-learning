@@ -143,7 +143,7 @@ function validateFloat($number){
 
 
 function copyFiles($copy_path){
-	$photo_count	 =count($_FILES['photo']['tmp_name']);
+	$photo_count=count($_FILES['photo']['tmp_name']);
 	if (!$_FILES['photo']['name'][0])
 		$photo_count=0;
 		

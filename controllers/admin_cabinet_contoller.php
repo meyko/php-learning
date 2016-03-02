@@ -1,5 +1,6 @@
 <?php  
 if (checkAdmin()){
+	include "models/admin_cabinet_model.php";
 	// одинаковый вид вкладок для удаления и изменения товара
 	if ($_GET['action']=='change'||($_GET['action']=='remove')){
 
@@ -33,10 +34,10 @@ if (checkAdmin()){
 		$link="add_product";
 		$activeAdd='class="active"';
 		$action_tab = "add_product_view.php";
-
+	
 	} 	
 
-	include "models/admin_cabinet_model.php";
+	
 	include  "views/admin_cabinet_view.php";
 
 }

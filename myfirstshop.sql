@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 29 2016 г., 00:05
+-- Время создания: Мар 03 2016 г., 01:14
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -19,6 +19,37 @@ SET time_zone = "+00:00";
 --
 -- База данных: `myfirstshop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `colors`
+--
+
+CREATE TABLE IF NOT EXISTS `colors` (
+  `code` varchar(2) NOT NULL,
+  `value` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `colors`
+--
+
+INSERT INTO `colors` (`code`, `value`) VALUES
+('01', 'белый'),
+('02', 'черный'),
+('03', 'красный'),
+('05', 'бежевый'),
+('06', 'коричневый'),
+('08', 'верблюжий'),
+('OW', 'молочный'),
+('10', 'слоновой кости'),
+('PM', 'яркий красный'),
+('NU', 'пудровый'),
+('TM', ' средний джинс'),
+('TS', 'темный джинс'),
+('88', 'небесно-голубой'),
+('86', 'изумрудный');
 
 -- --------------------------------------------------------
 
@@ -139,28 +170,26 @@ CREATE TABLE IF NOT EXISTS `product` (
   `price` float NOT NULL,
   PRIMARY KEY (`id`),
   KEY `type` (`type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=87 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Дамп данных таблицы `product`
 --
 
 INSERT INTO `product` (`id`, `name`, `description`, `type`, `price`) VALUES
-(2, 'Electra', 'Супер узкие джинсы, обтягивающие по всей длине. Вторая кожа', 328, 899),
-(3, 'Belle', 'Джинсы Слим с напылением под кожу, обтягивающие по всей длине.', 208, 999),
-(4, 'Lonny', 'Джинсы бойфренды, обтягивающие по всей длине.Отличный вариант на каждый день', 328, 1499),
-(67, 'BABO', 'Струящаяся ткань, с фактурной выделкой, широкие бретели, круглый вырез горловины, декоративные пуговицы, внизу волан, на спине круглый выре', 208, 249),
-(68, 'TEXTA', 'Цвет: меланжевый средний серый', 208, 199),
-(69, 'NET', 'Сандалии со шнурами вокруг ноги', 642, 999.5),
-(71, 'YOLA', 'Ткань с атласным блеском, узкие бретельки, v-образный вырез горловины с запáхом, детали из кружева, пояс, по бокам внизу разрезы.', 439, 1199),
-(72, 'CHELSEA', 'Кожаные ботинки на каблуке<br>\r\nНаборный каблук, по бокам эластичные вставки, высота каблука 7 см, размеры изделия: с 35 по 42.', 642, 2000),
-(73, 'CHELSEA', 'Кожаные ботинки на каблуке<br>\r\nНаборный каблук, по бокам эластичные вставки, высота каблука 7 см, размеры изделия: с 35 по 42.', 642, 2000),
-(74, 'COTI', 'Пестрая ткань, воротник-стойка, длинные рукава, застежка на молнию.\r\n· Боковая длина (от проймы до низа) 82.0 cm<br>\r\n· Длина спинки 106.0 cm<br>\r\nДанные ', 439, 999.45),
-(75, 'TUYI', 'Фасон "карандаш", трикотаж, связанный резинкой, эластичный пояс.<br>\r\n· Боковая длина (от проймы до низа) 74.0 cm<br>\r\n· Длина юбки 74.5 cm', 308, 649.88),
-(78, 'Alice', 'Удобные джинсы', 328, 999),
-(83, 'new', 'fgdfg', 308, 111),
-(84, 'Test tovar', 'Тестовое описание  kl', 208, 800),
-(86, 'цу', 'цу', 208, 1);
+(2, 'Electra', 'Супер узкие джинсы, обтягивающие по всей длине. Вторая кожа', 328, 980.5),
+(3, 'Belle', 'Джинсы Слим с напылением под кожу, обтягивающие по всей длине.', 328, 1500),
+(6, 'Lonny', 'Джинсы бойфренды, обтягивающие по всей длине.Отличный вариант на каждый день', 328, 1499),
+(7, 'BABO', 'Струящаяся ткань, с фактурной выделкой, широкие бретели, круглый вырез горловины, декоративные пуговицы, внизу волан, на спине круглый выре', 208, 499),
+(8, 'TEXTA', 'Цвет: меланжевый средний серый', 208, 199),
+(9, 'NET', 'Сандалии со шнурами вокруг ноги', 642, 2599),
+(10, 'YOLA', 'Ткань с атласным блеском, узкие бретельки, v-образный вырез горловины с запaхом, детали из кружева, пояс, по бокам внизу разрезы.', 439, 1099),
+(11, 'CHELSEA', 'Кожаные ботинки на каблуке<br>\r\nНаборный каблук, по бокам эластичные вставки, высота каблука 7 см, размеры изделия: с 35 по 42.', 642, 2300),
+(12, 'COTI', 'Пестрая ткань, воротник-стойка, длинные рукава, застежка на молнию.\r\n· Боковая длина (от проймы до низа) 82.0 cm<br>\r\n· Длина спинки 106.0 cm<br>', 439, 1800),
+(13, 'TUYI', 'Фасон "карандаш", трикотаж, связанный резинкой, эластичный пояс.<br>\r\n· Боковая длина (от проймы до низа) 74.0 cm<br>\r\n· Длина юбки 74.5 cm', 308, 499),
+(14, 'Alice', 'Удобные джинсы', 328, 950),
+(15, 'New Test Model', 'New Test Model Description', 308, 399),
+(16, 'Test Model 2', 'Test', 439, 111);
 
 -- --------------------------------------------------------
 
@@ -171,6 +200,7 @@ INSERT INTO `product` (`id`, `name`, `description`, `type`, `price`) VALUES
 CREATE TABLE IF NOT EXISTS `product_photo` (
   `id` int(11) NOT NULL,
   `photo_url` varchar(200) NOT NULL,
+  `color` char(2) NOT NULL,
   KEY `id_product` (`id`),
   KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -179,44 +209,45 @@ CREATE TABLE IF NOT EXISTS `product_photo` (
 -- Дамп данных таблицы `product_photo`
 --
 
-INSERT INTO `product_photo` (`id`, `photo_url`) VALUES
-(2, '/uploads/img/electra.jpg'),
-(3, '/uploads/img/belle.jpg'),
-(4, '/uploads/img/lonny.jpg'),
-(2, '/uploads/img/electra2.jpg'),
-(2, '/uploads/img/electra3.jpg'),
-(2, '/uploads/img/electra4.jpg'),
-(3, '/uploads/img/belle2.jpg'),
-(3, '/uploads/img/belle3.jpg'),
-(3, '/uploads/img/belle4.jpg'),
-(4, '/uploads/img/lonny2.jpg'),
-(4, '/uploads/img/lonni3.jpg'),
-(4, '/uploads/img/lonni4.jpg'),
-(67, './uploads/img/babo1.jpg'),
-(67, './uploads/img/babo2.jpg'),
-(67, './uploads/img/babo3.jpg'),
-(67, './uploads/img/babo4.jpg'),
-(68, './uploads/img/2081.jpg'),
-(69, './uploads/img/net1.jpg'),
-(71, './uploads/img/yola1.jpg'),
-(71, './uploads/img/yola2.jpg'),
-(71, './uploads/img/yola3.jpg'),
-(71, './uploads/img/yola4.jpg'),
-(72, './uploads/img/chelsea3.jpg'),
-(72, './uploads/img/chelsea4.jpg'),
-(73, './uploads/img/chelsea1.jpg'),
-(73, './uploads/img/chelsea2.jpg'),
-(74, './uploads/img/coti1.jpg'),
-(74, './uploads/img/coti2.jpg'),
-(74, './uploads/img/coti3.jpg'),
-(74, './uploads/img/coti4.jpg'),
-(75, './uploads/img/tuiy3.jpg'),
-(75, './uploads/img/tuti2.jpg'),
-(75, './uploads/img/tuyi1.jpg'),
-(78, './uploads/img/alice.jpg'),
-(78, './uploads/img/alice2.jpg'),
-(78, './uploads/img/alice3.jpg'),
-(78, './uploads/img/alice4.jpg');
+INSERT INTO `product_photo` (`id`, `photo_url`, `color`) VALUES
+(2, './uploads/img/electra.jpg', 'TM'),
+(2, './uploads/img/electra2.jpg', 'TM'),
+(2, './uploads/img/electra3.jpg', 'TM'),
+(2, './uploads/img/electra4.jpg', 'TM'),
+(3, './uploads/img/belle.jpg', '02'),
+(3, './uploads/img/belle2.jpg', '02'),
+(3, './uploads/img/belle3.jpg', '02'),
+(3, './uploads/img/belle4.jpg', '02'),
+(6, './uploads/img/lonni3.jpg', 'TM'),
+(6, './uploads/img/lonni4.jpg', 'TM'),
+(6, './uploads/img/lonny.jpg', 'TS'),
+(6, './uploads/img/lonny2.jpg', 'TS'),
+(7, './uploads/img/babo1.jpg', '01'),
+(7, './uploads/img/babo2.jpg', '01'),
+(7, './uploads/img/babo3.jpg', '01'),
+(7, './uploads/img/babo4.jpg', '01'),
+(8, './uploads/img/2081.jpg', '08'),
+(9, './uploads/img/net1.jpg', 'NU'),
+(10, './uploads/img/yola1.jpg', 'OW'),
+(10, './uploads/img/yola2.jpg', 'OW'),
+(10, './uploads/img/yola3.jpg', 'OW'),
+(10, './uploads/img/yola4.jpg', 'OW'),
+(11, './uploads/img/chelsea3.jpg', '02'),
+(11, './uploads/img/chelsea4.jpg', '02'),
+(11, './uploads/img/chelsea1.jpg', '08'),
+(11, './uploads/img/chelsea2.jpg', '08'),
+(12, './uploads/img/coti1.jpg', '08'),
+(12, './uploads/img/coti2.jpg', '08'),
+(12, './uploads/img/coti3.jpg', '08'),
+(12, './uploads/img/coti4.jpg', '08'),
+(13, './uploads/img/tuiy3.jpg', 'PM'),
+(13, './uploads/img/tuti2.jpg', 'PM'),
+(13, './uploads/img/tuyi1.jpg', 'PM'),
+(14, './uploads/img/alice.jpg', 'TS'),
+(14, './uploads/img/alice2.jpg', 'TS'),
+(14, './uploads/img/alice3.jpg', 'TM'),
+(14, './uploads/img/alice4.jpg', 'TM'),
+(16, './uploads/img/14.jpg', '86');
 
 -- --------------------------------------------------------
 
@@ -266,6 +297,101 @@ INSERT INTO `settings` (`parameter`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `sizes`
+--
+
+CREATE TABLE IF NOT EXISTS `sizes` (
+  `id` tinyint(4) NOT NULL,
+  `size` varchar(13) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `sizes`
+--
+
+INSERT INTO `sizes` (`id`, `size`) VALUES
+(19, 'XS'),
+(20, 'S'),
+(21, 'M'),
+(22, 'L'),
+(23, 'XL'),
+(24, 'XXL'),
+(18, 'универсальный');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `stock`
+--
+
+CREATE TABLE IF NOT EXISTS `stock` (
+  `id` int(11) NOT NULL,
+  `color` char(2) NOT NULL,
+  `size` tinyint(4) NOT NULL,
+  `stock` mediumint(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `stock`
+--
+
+INSERT INTO `stock` (`id`, `color`, `size`, `stock`) VALUES
+(2, 'TM', 34, 10),
+(2, 'TM', 36, 2),
+(2, 'TM', 38, 8),
+(2, 'TM', 40, 1),
+(3, '02', 34, 2),
+(3, '02', 36, 6),
+(3, '02', 38, 7),
+(3, '02', 40, 0),
+(6, 'TM', 34, 6),
+(6, 'TM', 36, 10),
+(6, 'TM', 38, 3),
+(6, 'TS', 36, 3),
+(6, 'TS', 38, 5),
+(6, 'TS', 42, 16),
+(7, '01', 19, 3),
+(7, '01', 20, 4),
+(7, '01', 21, 6),
+(7, '01', 22, 10),
+(7, '01', 23, 1),
+(8, '08', 20, 5),
+(8, '08', 21, 2),
+(8, '08', 22, 5),
+(9, 'NU', 36, 4),
+(9, 'NU', 37, 33),
+(9, 'NU', 38, 26),
+(10, 'OW', 19, 2),
+(10, 'OW', 20, 33),
+(10, 'OW', 22, 22),
+(11, '02', 37, 3),
+(11, '02', 38, 4),
+(11, '02', 39, 1),
+(11, '08', 36, 4),
+(11, '08', 39, 10),
+(11, '08', 40, 1),
+(12, '08', 19, 3),
+(12, '08', 20, 4),
+(12, '08', 23, 22),
+(13, 'PM', 19, 4),
+(13, 'PM', 20, 12),
+(13, 'PM', 22, 2),
+(13, 'PM', 21, 1),
+(14, 'TS', 34, 3),
+(14, 'TS', 36, 1),
+(14, 'TS', 38, 5),
+(14, 'TS', 40, 7),
+(14, 'TM', 36, 2),
+(14, 'TM', 38, 3),
+(15, '05', 19, 3),
+(15, '05', 24, 2),
+(15, '05', 21, 4),
+(15, '02', 20, 1),
+(16, '86', 19, 23);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `users`
 --
 
@@ -292,7 +418,8 @@ INSERT INTO `users` (`id`, `login`, `password`, `role`) VALUES
 (28, 'test3333', '$2a$08$60QmPPg4QzkSUG8NHnHlNu2KBDYhp.1cPlV5VOxAEnGabABY14LAa', 'r'),
 (29, 'test333', '$2a$08$4x5zUpAgwKBya4o6TbB2MOHRkquQ7hLUQpQ/Cs1z7AgYt1xcW9uuy', 'r'),
 (30, 'test33', '$2a$08$1VG1V8mYuls58FrOSdE6BuaHPI70LjlFUMtby8ZvMAtwR988d0ZU.', 'r'),
-(31, 'test3', '$2a$08$MKk4yUQ1Ca4yt8YL5Z68oOjZ6mcBeTOK4rKIu3q.BK04KbBqu56Em', 'r');
+(31, 'test3', '$2a$08$MKk4yUQ1Ca4yt8YL5Z68oOjZ6mcBeTOK4rKIu3q.BK04KbBqu56Em', 'r'),
+(32, 'testuser', '$2a$08$Mh3TPxQEXiWk4Hzm6XvDZ.QYd7P7zxr2FrWNrFPnclvwI43.Vo5rK', 'u');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

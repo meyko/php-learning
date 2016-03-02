@@ -18,9 +18,7 @@ function routing($page){
 
 	$sidebar_controler = select('right_sidebar','sidebar_page',array('main_page'=>$page));
 
-	if (!$sidebar_controler)
-		$sidebar_controler='not_found.php';
-	else
+	if ($sidebar_controler)
 		$sidebar_controler=$sidebar_controler[0]['sidebar_page'];
 
 

@@ -30,7 +30,6 @@ function select($table, $what='*', $where='', $add=""){
 			$rows[]=$row;
 	}
 	else {
-		echo mysqli_error($db_connection);
 		$rows='';
 	}
 	
@@ -59,8 +58,9 @@ function query($query_str){
 
 function getRandom($table, $count){
 	$count_items = select ($table,'count(*)'); 
-	$result = array();
 
+	$result = array();
+	if ($count<=$count_items[0]['count(*)']){
 	for ($i=0; $i<$count; $i++){
 		$curRand=rand(0, $count_items[0]['count(*)']-1);
 		$item =  select ($table,'*','',"limit $curRand, 1");
@@ -70,8 +70,9 @@ function getRandom($table, $count){
 		else 
 			$i--;
 	}
-	
-	
+}
+else 
+ $result = select($table);
 	return $result;
 
 }
