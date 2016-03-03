@@ -12,7 +12,7 @@ extract($family[0]);
 	<p class="h3 text-center"> <?=$family;?> <?=$name;?></p>
 	<p><?=$description;?></p>
 	
-	<form action="bakset" method="POST" role="form">
+	<form action="basket" method="POST" role="form">
 		<div class="form-group">
 		<label for="color">Цвет</label>
 		<div class="form-control" id='color'>
@@ -32,6 +32,13 @@ extract($family[0]);
 			<?php }?>
 
 		</select>
+
+	<div class="form-group">
+		<label for="color">Количество</label>
+		 <input type ='number' name="count" value="1" size="10" step="1" min="1" max="100">
+	</div>
+
+			
 	<p class="panel-default h3"> Цена <?=$price;?> ГРН </p>  
 	<input type="hidden" name='id' value='<?=$id;?>'>
 		<button type="submit" class="btn btn-primary">Добавить в корзину</button>

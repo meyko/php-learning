@@ -117,19 +117,61 @@ function validateText($text,$size){
 	}
 }
 
+function validatePlusInt($number){
+	$resalt = true;
+	showArray($number);
+	if (is_array($number)){
+		foreach ($number as $one_number){
+			if (!preg_match('/^[0-9]{1,7}$/u',$one_number)||$one_number>8388607||$one_number<0){
+			$resalt = false;
+			echo $resalt."123";
+		}
+		}
+
+	}
+	else{
+		if (is_integer($number)&&$number<8388607&&$number>=0)
+			return true;
+		else 
+			return false;
+	}
+
+if ($resalt)
+		return true;
+	else 
+		return false;
+
+
+}
+
+
 function validateOptions($option, $tableOption,$key){
 	$tmp_array = select ($tableOption);
 	$options=array();
-
+	$resalt=true;
 	foreach ($tmp_array as $v){
 		$options[]=$v[$key];
 	}
 
-	if (in_array($option,$options)){
+	if (is_array($option)){
+		foreach ($option as $item){
+			
+			if (!in_array($option,$options)){
+		 	$resalt=false;
+			}
+		}
+	}
+	elseif (in_array($option,$options)){
 		return true;
 	}
 
 	else
+		return false;
+
+
+	if ($resalt)
+		return true;
+	else 
 		return false;
 }
 

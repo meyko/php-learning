@@ -11,6 +11,7 @@ else if ($_GET['id']){
 	include "models/one_product_model.php";
 	// список товаров, которые можно предложить доп-но
 	$product_list = getRandom('product', $addicional_prod_count);
+	if ($product)
 	include "views/one_product_view.php";
 }
 

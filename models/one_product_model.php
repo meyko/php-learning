@@ -1,5 +1,6 @@
 <?php
 $product = select ('product','*',array('id'=>$id));
+if ($product){
 $images = select
 (
 	'product_photo',
@@ -41,4 +42,6 @@ for($i=0;$i<count($_sizes);$i++) {
 
 	else 
 		 $sizes[$size_color] =$size_value;
+}
+
 }

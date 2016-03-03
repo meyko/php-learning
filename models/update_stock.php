@@ -1,25 +1,25 @@
 <?php
 
 foreach ($sizes as $k=>$size){
-	if ($stock[$k]!==""){
-	if (select('stock','id',array(	'id'=>$new_id,
-									'color'=>$color,
-									'size'=>$size))){
-		update ('stock',
-				array('stock'=>$stock[$k]),
-				array('id'=>$new_id,
-					   'color'=>$color,
-					   'size'=>$size)
+	if ($size!==""){
+		if (select('stock','id',array(	'id'=>$new_id,
+										'color'=>$color,
+										'size'=>$size))){
+			update ('stock',
+					array('stock'=>$stock[$k]),
+					array('id'=>$new_id,
+						   'color'=>$color,
+					   		'size'=>$size)
 			);
-	}
-	else{
+		}
+		else{
 		insert('stock',array(		'id'=>$new_id,
 									'color'=>$color,
 									'size'=>$size,
 									'stock'=>$stock[$k]));
-	}
+		}
 
-}
+	}
 
 }
 

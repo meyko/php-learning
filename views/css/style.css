@@ -114,4 +114,13 @@ a {
 
 fieldset{
 	border:1px dotted grey;
+	margin:20px;
+}
+
+.form-group{
+	margin-top:10px;
+}
+
+input[type="number"]{
+	width:6em;
 }

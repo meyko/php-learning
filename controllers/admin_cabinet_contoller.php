@@ -30,7 +30,8 @@ if (checkAdmin()){
 
 	//по умолчанию выводится вкладка добавления товара
 	if (!$_GET['action'])
-	{
+	{	
+		$legend= "Добавление нового товара или цвета";
 		$link="add_product";
 		$activeAdd='class="active"';
 		$action_tab = "add_product_view.php";

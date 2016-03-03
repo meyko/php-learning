@@ -3,6 +3,8 @@ $_types = select('families');
 foreach ($_types as $k=>$v){
 	$types[$v['type']]=$v['family'];
 }
+
+
 if (isset($sizes))
 	unset($sizes);
 

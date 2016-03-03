@@ -11,7 +11,13 @@ if (checkAdmin()){
 		$stock 				= $_POST['stock'];
 	
 
-		if (validateText($name,30)&&validateText($description,250)&&validateOptions($type,'families','type')&&validateFloat($price)){
+		if (validateText($name,30)&&
+			validateText($description,250)
+			&&validateOptions($type,'families','type')
+			&&validateFloat($price)
+			&&validateOptions($color,'colors','code')
+			&&validatePlusInt($stock))
+			{
 			//копирование фото на диск
 			$copy_path='./uploads/img/';
 			$photo_name_list=copyFiles($copy_path);
