@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <title>MyTestShop</title>
-    <link rel="stylesheet" media="screen" href="/views/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/views/css/style.css">
+    <link rel="stylesheet" media="screen" href="./views/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./views/css/style.css">
   </head>
   <body>
    

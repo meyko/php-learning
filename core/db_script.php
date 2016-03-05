@@ -41,14 +41,14 @@ function select($table, $what='*', $where='', $add=""){
 function query($query_str){
 	
 	$db_connection=get_connection();
+	mysqli_set_charset($db_connection,'utf8');
 	$result= mysqli_query($db_connection,$query_str);
 	
 	if (mysqli_num_rows($result)>0){
 		while ($row=mysqli_fetch_assoc($result))
 			$rows[]=$row;
 	}
-	else 
-		echo mysqli_error($result);
+	
 	
 	mysqli_close($db_connection);
 	

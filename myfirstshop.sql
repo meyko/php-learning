@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 03 2016 г., 01:14
+-- Время создания: Мар 04 2016 г., 12:24
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -96,11 +96,13 @@ INSERT INTO `pages` (`page`, `page_name`) VALUES
 ('add_admin', 'add_admin_controller.php'),
 ('add_product', 'add_product_controller.php'),
 ('autorization', 'autorization_controller.php'),
+('basket', 'basket_contoller.php'),
 ('category', 'category_contoller.php'),
 ('change_settings', 'change_settings_controller.php'),
 ('delete_admin', 'delete_admin_controller.php'),
 ('delete_product', 'delete_product_controller.php'),
 ('edit_product', 'edit_product_controller.php'),
+('filter', 'filter_contoller.php'),
 ('main', 'main_view_controller.php'),
 ('page', 'page_controller.php'),
 ('personal_cabinet', 'personal_cabinet_controller.php'),
@@ -170,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `price` float NOT NULL,
   PRIMARY KEY (`id`),
   KEY `type` (`type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Дамп данных таблицы `product`
@@ -179,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 INSERT INTO `product` (`id`, `name`, `description`, `type`, `price`) VALUES
 (2, 'Electra', 'Супер узкие джинсы, обтягивающие по всей длине. Вторая кожа', 328, 980.5),
 (3, 'Belle', 'Джинсы Слим с напылением под кожу, обтягивающие по всей длине.', 328, 1500),
-(6, 'Lonny', 'Джинсы бойфренды, обтягивающие по всей длине.Отличный вариант на каждый день', 328, 1499),
+(6, 'Lonny', 'Джинсы бойфренды, обтягивающие по всей длине.Отличный вариант на каждый день!', 328, 1499),
 (7, 'BABO', 'Струящаяся ткань, с фактурной выделкой, широкие бретели, круглый вырез горловины, декоративные пуговицы, внизу волан, на спине круглый выре', 208, 499),
 (8, 'TEXTA', 'Цвет: меланжевый средний серый', 208, 199),
 (9, 'NET', 'Сандалии со шнурами вокруг ноги', 642, 2599),
@@ -246,8 +248,7 @@ INSERT INTO `product_photo` (`id`, `photo_url`, `color`) VALUES
 (14, './uploads/img/alice.jpg', 'TS'),
 (14, './uploads/img/alice2.jpg', 'TS'),
 (14, './uploads/img/alice3.jpg', 'TM'),
-(14, './uploads/img/alice4.jpg', 'TM'),
-(16, './uploads/img/14.jpg', '86');
+(14, './uploads/img/alice4.jpg', 'TM');
 
 -- --------------------------------------------------------
 
@@ -272,7 +273,8 @@ INSERT INTO `right_sidebar` (`main_page`, `sidebar_page`) VALUES
 ('delete_product', 'cabinet_controller_sidebar.php'),
 ('change_settings', 'cabinet_controller_sidebar.php'),
 ('delete_admin', 'cabinet_controller_sidebar.php'),
-('product', 'main_view_sidebar_controller.php');
+('product', 'main_view_sidebar_controller.php'),
+('filter', 'main_view_sidebar_controller.php');
 
 -- --------------------------------------------------------
 
@@ -292,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 INSERT INTO `settings` (`parameter`, `value`) VALUES
 ('addicional_prod_rows', '1'),
 ('max_rows_product', '4'),
-('max_rows_posts', '3');
+('max_rows_posts', '5');
 
 -- --------------------------------------------------------
 
@@ -350,7 +352,7 @@ INSERT INTO `stock` (`id`, `color`, `size`, `stock`) VALUES
 (6, 'TS', 36, 3),
 (6, 'TS', 38, 5),
 (6, 'TS', 42, 16),
-(7, '01', 19, 3),
+(7, '01', 19, 4),
 (7, '01', 20, 4),
 (7, '01', 21, 6),
 (7, '01', 22, 10),
@@ -370,7 +372,7 @@ INSERT INTO `stock` (`id`, `color`, `size`, `stock`) VALUES
 (11, '08', 36, 4),
 (11, '08', 39, 10),
 (11, '08', 40, 1),
-(12, '08', 19, 3),
+(12, '08', 19, 0),
 (12, '08', 20, 4),
 (12, '08', 23, 22),
 (13, 'PM', 19, 4),
@@ -387,7 +389,14 @@ INSERT INTO `stock` (`id`, `color`, `size`, `stock`) VALUES
 (15, '05', 24, 2),
 (15, '05', 21, 4),
 (15, '02', 20, 1),
-(16, '86', 19, 23);
+(16, '86', 19, 4),
+(17, '02', 19, 0),
+(17, '02', 43, 0),
+(18, '01', 19, 0),
+(6, 'OW', 19, 10),
+(6, 'TM', 19, 0),
+(3, 'OW', 18, 0),
+(3, 'OW', 19, 10);
 
 -- --------------------------------------------------------
 

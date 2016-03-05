@@ -21,11 +21,15 @@ function createSelect($current_option, &$array, $select_name)
 
 
 
-function navPages($table, $max_items_page, $where=''){
-	//считаем кол-во страниц
+function navPages($table, $max_items_page, $where='',$count_posts=""){
+
+	if (!$count_posts){
+		//считаем кол-во страниц
 	$count_posts = select ($table,'count(*)',$where); 
 	$count_pages = ceil($count_posts[0]['count(*)'] / $max_items_page) ;
-
+	}
+	else 
+		$count_pages = ceil($count_posts[0]['count(*)'] / $max_items_page) ;
 
 	$current_page=1;
 	if ($_GET['page'] ){
@@ -36,6 +40,7 @@ function navPages($table, $max_items_page, $where=''){
 	1:$current_page-1;
 	$next_page = ($current_page==$count_pages)?
 	$count_pages:$current_page+1;
+
 	return array($current_page, $prev_page, $next_page, $count_pages);
 }
 
