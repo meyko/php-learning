@@ -5,13 +5,13 @@ if ($_GET['category']){
 	$idPage = "&category=".$_GET['category'];
 }
 else {
-	$where = '';
-	$idPage='';
+	$where  = '';
+	$idPage = '';
 }
 
 
-$link="product";	//адрес страницы в ссылке товаров в начале страницы
-$navigate='posts';  //для постраничной наигации, из какой таблицы считать записи
+$link = "product";	//адрес страницы в ссылке товаров в начале страницы
+$navigate ='posts';  //для постраничной наигации, из какой таблицы считать записи
 include "models/main_view_model.php";
 include "models/product_list_model.php";
 

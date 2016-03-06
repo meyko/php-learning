@@ -19,7 +19,7 @@ function select($table, $what='*', $where='', $add=""){
 	}
 	
 	$query="SELECT $what FROM $table $where_sql $add";
-	
+
 	$db_connection=get_connection();
 	mysqli_set_charset($db_connection,'utf8');
 	$result = mysqli_query($db_connection,$query);

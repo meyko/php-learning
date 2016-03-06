@@ -20,12 +20,12 @@ extract($product[0]);
 $stock = select ('stock','stock,color,size',array('id'=>$id));
 
 foreach ($stock as $k=>$v){
-$size_name = select('sizes','size',array('id'=>$v['size']));
+	$size_name = select('sizes','size',array('id'=>$v['size']));
 
-if ($size_name){
-	$stock[$k]['size'] = $size_name[0]['size'];
-} 
+	if ($size_name){
+		$stock[$k]['size'] = $size_name[0]['size'];
+	} 
 }
 
-	
+
 ?>

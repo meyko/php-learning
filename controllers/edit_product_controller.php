@@ -63,10 +63,7 @@ if (checkAdmin()){
 		}
 		
 
-		
-
-		include "models/admin_cabinet_model.php";
-		
+		include "models/admin_cabinet_model.php";		
 		include "models/edit_model.php";
 		$action_tab = "add_product_view.php"; //вью для активной вкладки кабинета
 

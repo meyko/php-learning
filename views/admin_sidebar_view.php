@@ -7,6 +7,11 @@
 		</form>
 	</div>
 </div>
+<div class="row right-sidebar">
+	<div class="col-xs-12">
+		<a class="btn btn-default" href="basket" role="button">Перейти в корзину</a>
+	</div>
+</div>
 
 <div class="row right-sidebar">
 	<div class="col-xs-12">

@@ -8,9 +8,6 @@ function routing($page){
 
 	$controler  = select ('pages', 'page_name', array('page'=>$page));
 	
-	
-	
-	
 	if (!$controler)
 		$controler='not_found.php';
 	else
@@ -26,11 +23,13 @@ function routing($page){
 		$user_name = $_SESSION['login'];
 	}
 
-include_once('models/parametres.php');
-include_once('views/template_view.php');
+	if ($controler!='ajax_update_basket.php'){
+		include_once('models/parametres.php');
+		include_once('views/template_view.php');
+	}
+	else 
+		include "controllers/ajax_update_basket.php";
 
 }
-
-
 
 ?>

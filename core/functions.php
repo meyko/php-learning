@@ -238,3 +238,14 @@ function checkUser(){
 		return true;
 	return false;
 }
+
+
+function checkStock($id,$color,$size,$count){
+
+	if (select('stock','id',array('id'=>$id,'color'=>$color,'size'=>$size)," and stock >='$count'"))
+
+		return true;
+	else
+		return false;
+
+}

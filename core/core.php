@@ -3,14 +3,13 @@ include_once 'core/routing.php';
 include_once "core/functions.php";
 function page_load(){
 	
-	$page = getPage();
+	$page = getPage($_SERVER['REQUEST_URI']);
 	routing($page);
-
 }
 
-function getPage(){
+function getPage($url){
 		
-	$array = explode('/',$_SERVER['REQUEST_URI']);
+	$array = explode('/',$url);
 	$page = $array[1];
 	$page = trim_parameters($page);
 	

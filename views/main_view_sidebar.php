@@ -35,12 +35,12 @@
 			<div class="form-group">
 				<label for id="sort">Сортировка по</label>
 				<select class="form-control" name ='sorting' id='sort'>
-				<option value='category' <?php if($sortBy) if ($sortBy =='category') echo "selected";?>>Категория товара</option>
-				<option value='model' <?php if($sortBy) if ($sortBy =='model') echo "selected";?>>Название модели</option>
-				<option value='id' <?php if($sortBy) if ($sortBy =='id') echo "selected";?>>Время поступления товара</option>				
-				<option value='price' <?php if($sortBy) if ($sortBy =='price') echo "selected";?>>Цена</option>			
-						
-			</select>		
+					<option value='category' <?php if($sortBy) if ($sortBy =='category') echo "selected";?>>Категория товара</option>
+					<option value='model' <?php if($sortBy) if ($sortBy =='model') echo "selected";?>>Название модели</option>
+					<option value='id' <?php if($sortBy) if ($sortBy =='id') echo "selected";?>>Время поступления товара</option>				
+					<option value='price' <?php if($sortBy) if ($sortBy =='price') echo "selected";?>>Цена</option>			
+					
+				</select>		
 				<div class="radio">
 					<label>						
 						<input  type='radio'  name = "sort" <?php if(!$sort_type||$sort_type=="asc") echo "checked";?>  value ="asc"> по возрастанию
@@ -53,28 +53,28 @@
 				</div>
 
 
-			 
+				
 
-</div>
-
-		<div class="form-group">
-			<label>Отобразить категории</label>
-			<?php if ($categories) foreach ($categories as $category){ ?>
+			</div>
 
 			<div class="form-group">
-				<div class="checkbox">
-					<label>						
-						<input  type='checkbox' <?php if($cat)
-						{if(in_array($category['type'],$cat)) echo "checked";} else echo "checked";?> name = "cat_filter[]"  value ="<?=$category['type']?>"><?=$category['category_name']?>
-					</label>
-				</div>
-			</div>
-			<?php }?>
-		</div>
+				<label>Отобразить категории</label>
+				<?php if ($categories) foreach ($categories as $category){ ?>
 
-		<button type="submit" class="btn btn-primary">Применить фильтр</button>
-	</form>
-</div>
+				<div class="form-group">
+					<div class="checkbox">
+						<label>						
+							<input  type='checkbox' <?php if($cat)
+							{if(in_array($category['type'],$cat)) echo "checked";} else echo "checked";?> name = "cat_filter[]"  value ="<?=$category['type']?>"><?=$category['category_name']?>
+						</label>
+					</div>
+				</div>
+				<?php }?>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Применить фильтр</button>
+		</form>
+	</div>
 </div>
 
 <div class="clearfix">

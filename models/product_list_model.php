@@ -5,7 +5,6 @@ if (!$where){
 }
 
 
-
 if ($navigate=='product'){
 // получение информации для постраничной навигации
 	list($current_page,

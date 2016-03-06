@@ -8,6 +8,9 @@ if ($_GET['id']=='all'||empty($_GET['cat'])&&empty($_GET['id'])){
 //просмотр конкретного товара
 else if ($_GET['id']){
 	$id = $_GET['id'];
+	if ($_GET['resalt_text']){
+		$resalt_text = $_GET['resalt_text']; 
+	}
 	include "models/one_product_model.php";
 	// список товаров, которые можно предложить доп-но
 	$product_list = getRandom('product', $addicional_prod_count);
