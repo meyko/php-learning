@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 04 2016 г., 12:24
+-- Время создания: Мар 07 2016 г., 14:00
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -19,6 +19,29 @@ SET time_zone = "+00:00";
 --
 -- База данных: `myfirstshop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `basket`
+--
+
+CREATE TABLE IF NOT EXISTS `basket` (
+  `id_user` int(11) NOT NULL,
+  `id_product` int(11) NOT NULL,
+  `color_product` char(2) NOT NULL,
+  `size` tinyint(4) NOT NULL,
+  `count` mediumint(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `basket`
+--
+
+INSERT INTO `basket` (`id_user`, `id_product`, `color_product`, `size`, `count`) VALUES
+(0, 12, '08', 20, 4),
+(16, 12, '08', 20, 3),
+(16, 14, 'TS', 36, 1);
 
 -- --------------------------------------------------------
 
@@ -93,8 +116,10 @@ CREATE TABLE IF NOT EXISTS `pages` (
 --
 
 INSERT INTO `pages` (`page`, `page_name`) VALUES
+('action_basket', 'action_basket_controller.php'),
 ('add_admin', 'add_admin_controller.php'),
 ('add_product', 'add_product_controller.php'),
+('change_basket', 'ajax_update_basket.php'),
 ('autorization', 'autorization_controller.php'),
 ('basket', 'basket_contoller.php'),
 ('category', 'category_contoller.php'),
@@ -339,7 +364,7 @@ CREATE TABLE IF NOT EXISTS `stock` (
 
 INSERT INTO `stock` (`id`, `color`, `size`, `stock`) VALUES
 (2, 'TM', 34, 10),
-(2, 'TM', 36, 2),
+(2, 'TM', 36, 4),
 (2, 'TM', 38, 8),
 (2, 'TM', 40, 1),
 (3, '02', 34, 2),
@@ -349,10 +374,10 @@ INSERT INTO `stock` (`id`, `color`, `size`, `stock`) VALUES
 (6, 'TM', 34, 6),
 (6, 'TM', 36, 10),
 (6, 'TM', 38, 3),
-(6, 'TS', 36, 3),
+(6, 'TS', 36, 2),
 (6, 'TS', 38, 5),
 (6, 'TS', 42, 16),
-(7, '01', 19, 4),
+(7, '01', 19, 3),
 (7, '01', 20, 4),
 (7, '01', 21, 6),
 (7, '01', 22, 10),
@@ -360,7 +385,7 @@ INSERT INTO `stock` (`id`, `color`, `size`, `stock`) VALUES
 (8, '08', 20, 5),
 (8, '08', 21, 2),
 (8, '08', 22, 5),
-(9, 'NU', 36, 4),
+(9, 'NU', 36, 1),
 (9, 'NU', 37, 33),
 (9, 'NU', 38, 26),
 (10, 'OW', 19, 2),
@@ -369,18 +394,18 @@ INSERT INTO `stock` (`id`, `color`, `size`, `stock`) VALUES
 (11, '02', 37, 3),
 (11, '02', 38, 4),
 (11, '02', 39, 1),
-(11, '08', 36, 4),
+(11, '08', 36, 3),
 (11, '08', 39, 10),
 (11, '08', 40, 1),
 (12, '08', 19, 0),
-(12, '08', 20, 4),
-(12, '08', 23, 22),
+(12, '08', 20, 3),
+(12, '08', 23, 21),
 (13, 'PM', 19, 4),
 (13, 'PM', 20, 12),
 (13, 'PM', 22, 2),
 (13, 'PM', 21, 1),
 (14, 'TS', 34, 3),
-(14, 'TS', 36, 1),
+(14, 'TS', 36, 0),
 (14, 'TS', 38, 5),
 (14, 'TS', 40, 7),
 (14, 'TM', 36, 2),
@@ -393,7 +418,7 @@ INSERT INTO `stock` (`id`, `color`, `size`, `stock`) VALUES
 (17, '02', 19, 0),
 (17, '02', 43, 0),
 (18, '01', 19, 0),
-(6, 'OW', 19, 10),
+(6, 'OW', 19, 9),
 (6, 'TM', 19, 0),
 (3, 'OW', 18, 0),
 (3, 'OW', 19, 10);

@@ -112,6 +112,9 @@
 							if (xhr.responseText=="no"){
 								document.querySelector("tr:nth-child("+i+") td.count p" ).innerHTML = "недостаточно товара для заказа";
 								e.target.value=e.target.defaultValue;
+								count =  e.target.value;
+								document.querySelector("tr:nth-child("+i+") td.itog" ).innerText = price*count;
+
 							}
 							else {
 								document.querySelector("tr:nth-child("+i+") td.count p" ).innerHTML = "";
@@ -120,7 +123,7 @@
 						}
 					}
 					var request = "id_product="+id+"&count="+count+"&color="+color+"&size="+size+"&total_count="+totalCount;
-					console.log(request);
+				
         		    // отправка запроса с указанием данных.
         		    xhr.send(request);
 
