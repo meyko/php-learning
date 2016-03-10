@@ -2,6 +2,7 @@
 $activeChange='class="active"';
 $link="edit_product";
 $legend="Внесите изменения в товар $id";
+if (isset($id)){
 $product = select('product','*',array('id'=>$id));
 
 if (isset($colors))
@@ -27,5 +28,5 @@ foreach ($stock as $k=>$v){
 	} 
 }
 
-
+}
 ?>

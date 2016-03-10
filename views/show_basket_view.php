@@ -41,6 +41,7 @@
 							<td class="itog"><?=$item['price']*$item['count']?></td>
 						</tr>
 						<?php } ?>
+						<tr><td colspan="6" class="text-right">Итого</td><td class="itog_price info"></td></tr>
 					</tbody>
 				</table>
 				
@@ -65,7 +66,7 @@
 	<script>
 		window.onload = init;
 		function init(){
-
+			countSum();
 			var count = document.querySelectorAll("input[type='number']");
 			for(i=0;i<count.length;i++)
 				count[i].onchange = refreshBasket;
@@ -84,11 +85,21 @@
 				}
 			}
 
+			function countSum(){
+				var totalTd = document.querySelector(".itog_price");
+				var allPrices = document.querySelectorAll(".itog");
+				var summ=0;
+				for (var i=0;i<allPrices.length;i++){
+					 summ+= +allPrices[i].innerText; 
+				}
+				totalTd.innerText=summ;
+
+			}
+
 			function refreshBasket(e){
 
 				var id = e.target.dataset.id;
 				var count =  e.target.value;
-				console.log(count);
 				if (count<=0){
 					e.target.value=e.target.defaultValue;
 				}
@@ -114,18 +125,24 @@
 								e.target.value=e.target.defaultValue;
 								count =  e.target.value;
 								document.querySelector("tr:nth-child("+i+") td.itog" ).innerText = price*count;
+								countSum();
+															
 
 							}
 							else {
 								document.querySelector("tr:nth-child("+i+") td.count p" ).innerHTML = "";
 								e.target.defaultValue = e.target.value;
+								count =  e.target.value;
+								document.querySelector("tr:nth-child("+i+") td.itog" ).innerText = price*count;
+								countSum();
+
 							}
 						}
 					}
 					var request = "id_product="+id+"&count="+count+"&color="+color+"&size="+size+"&total_count="+totalCount;
 				
-        		    // отправка запроса с указанием данных.
         		    xhr.send(request);
+
 
         		}
         	}
