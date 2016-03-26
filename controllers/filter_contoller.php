@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD']=='GET'){
 $sortBy = $_GET['sorting'];
 $sort_type = $_GET['sort'];
 $navigate ="";
-
+$link='product';
 $idPage = $_SERVER['QUERY_STRING'];
 
 if ($_GET['page']){
